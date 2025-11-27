@@ -7,11 +7,14 @@
 
   <!-- BOOTSTRAP -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- FONTES -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
     body { font-family: 'Poppins', sans-serif; background:#fafafa; }
+
     :root{
       --brand-green:#1c7c43;
       --brand-orange:#ff7b4a;
@@ -26,7 +29,6 @@
       position: relative;
       overflow:hidden;
     }
-
     .hero::after{
       content:"";
       position:absolute;
@@ -38,7 +40,6 @@
       right:-80px;
       animation: float 6s infinite ease-in-out;
     }
-
     @keyframes float {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(20px); }
@@ -56,7 +57,6 @@
       transition: transform 0.3s;
     }
     .card-product:hover{ transform:translateY(-6px); }
-
     .card-product img{ height:200px; object-fit:cover; }
 
     /* FOOTER */
@@ -69,11 +69,14 @@
 <nav class="navbar navbar-expand-lg bg-white shadow-sm py-3">
   <div class="container">
     <a class="navbar-brand d-flex align-items-center" href="#">
-      <img src="https://source.unsplash.com/800x600/?icepop,fruit" width="60" height="60" class="me-2 rounded" alt="Logo">
+      <img src="https://images.unsplash.com/photo-1526080676457-4544bf0ebd68?auto=format&fit=crop&w=600&q=70"
+           width="60" height="60" class="me-2 rounded" alt="Logo">
       <strong class="fs-4" style="color:var(--brand-green)">Picolé da Estação</strong>
     </a>
 
-    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu"><span class="navbar-toggler-icon"></span></button>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
     <div id="menu" class="collapse navbar-collapse">
       <ul class="navbar-nav ms-auto gap-3">
@@ -95,8 +98,11 @@
         <p class="lead mt-3">Picolés 100% naturais feitos com frutas frescas da estação e ingredientes de Sertãozinho. Saudáveis, refrescantes e sustentáveis.</p>
         <a href="#cardapio" class="btn btn-main mt-3">Ver Cardápio</a>
       </div>
+
       <div class="col-lg-6 text-center mt-5 mt-lg-0">
-        <img src="https://source.unsplash.com/800x600/?icepop,fruit" class="img-fluid" alt="Picolés naturais">
+        <img src="https://images.unsplash.com/photo-1599491762491-5c2c33d7e41f?auto=format&fit=crop&w=1200&q=80"
+             class="img-fluid"
+             alt="Picolés naturais">
       </div>
     </div>
   </div>
@@ -134,11 +140,12 @@
 <section id="produtos" class="py-5 bg-light">
   <div class="container">
     <h2 class="fw-bold mb-4 text-center">Nossos Produtos</h2>
+
     <div class="row row-cols-1 row-cols-md-3 g-4">
 
       <div class="col">
         <div class="card card-product">
-          <img src="https://source.unsplash.com/800x600/?icepop,fruit" alt="Picolé de fruta">
+          <img src="https://images.unsplash.com/photo-1536510340338-8f6c1b7c7a49?auto=format&fit=crop&w=800&q=70" alt="Picolé de fruta">
           <div class="card-body">
             <h5 class="fw-semibold">Linha Clássica</h5>
             <p>Picolés feitos com frutas puras e água de coco.</p>
@@ -148,7 +155,7 @@
 
       <div class="col">
         <div class="card card-product">
-          <img src="https://source.unsplash.com/800x600/?icepop,fruit" alt="Mix de frutas">
+          <img src="https://images.unsplash.com/photo-1478144592103-25e218a04891?auto=format&fit=crop&w=800&q=70" alt="Mix de frutas">
           <div class="card-body">
             <h5 class="fw-semibold">Mix Criativos</h5>
             <p>Combinações como manga + maracujá e abacaxi + hortelã.</p>
@@ -158,7 +165,7 @@
 
       <div class="col">
         <div class="card card-product">
-          <img src="https://source.unsplash.com/800x600/?icepop,fruit" alt="Kids">
+          <img src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?auto=format&fit=crop&w=800&q=80" alt="Kids">
           <div class="card-body">
             <h5 class="fw-semibold">Linha Kids</h5>
             <p>Sabores leves em formatos divertidos para crianças.</p>
@@ -187,6 +194,7 @@
         </div>
       </div>
     </div>
+  
   </div>
 </section>
 
@@ -207,6 +215,7 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -226,8 +235,22 @@
 
   const currentSeason = getSeasonByMonth(new Date().getMonth());
   const seasonList = document.getElementById('season-list');
+  const currentFlavors = document.getElementById('current-flavors');
 
   for (const s in seasons){
     const item = document.createElement('li');
     item.className = 'list-group-item d-flex justify-content-between align-items-start';
-    item.innerHTML = `<strong>${s.toUpperCase()}</strong><span>${seasons[s].join(', ')}
+    item.innerHTML = `<strong>${s.toUpperCase()}</strong><span>${seasons[s].join(', ')}</span>`;
+    seasonList.appendChild(item);
+  }
+
+  seasons[currentSeason].forEach(flav => {
+    const tag = document.createElement('span');
+    tag.className = 'badge bg-success p-2';
+    tag.textContent = flav;
+    currentFlavors.appendChild(tag);
+  });
+</script>
+
+</body>
+</html>
