@@ -1,41 +1,302 @@
-<!DOCTYPE html>
+<!--
+PÁGINA: picole_da_estacao.html
+Arquivo pronto para hospedar no GitHub Pages.
+Instruções rápidas (já incluídas no site):
+1) Substitua assets/logo.png pelo seu logo real (mesmo nome) ou ajuste o path. 
+2) Coloque o arquivo em um repositório GitHub e ative GitHub Pages (branch main ou gh-pages).
+3) As imagens de produto e a favicon são opcionais — coloque em /assets/ se quiser.
+
+Criado para: Sara Avelino Carrijo
+WhatsApp: +55 16 99207-6501
+-->
+
+<!doctype html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página da Sara</title>
-    <style>
-        body {
-            background-color: #6a0dad;
-            font-family: Arial, sans-serif;
-            color: white;
-            text-align: center;
-            padding: 50px;
-        }
-
-        h1 {
-            font-size: 3em;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 5px #000;
-        }
-
-        .caixa {
-            background-color: rgba(255, 255, 255, 0.15);
-            padding: 20px;
-            border-radius: 10px;
-            width: 60%;
-            margin: auto;
-            box-shadow: 0 0 10px #00000055;
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Picolé da Estação — Naturais, Sazonais e Sustentáveis</title>
+  <meta name="description" content="Picolé da Estação - Picolés 100% naturais, feitos com frutas da estação e água de coco. Sem açúcar, sem conservantes.">
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root{ --brand-green:#1f6f3a; --accent:#ff7a3d; }
+    body{ font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
+    .hero{ background: linear-gradient(180deg, rgba(255,122,61,0.06), rgba(31,111,58,0.02)); }
+    .brand-name{ color:var(--brand-green); font-weight:700; letter-spacing:0.6px; }
+    .btn-primary{ background:var(--brand-green); border-color:var(--brand-green); }
+    .flavor-badge{ background:rgba(255,122,61,0.08); color:var(--accent); font-weight:600; }
+    .card-product img{ max-height:160px; object-fit:cover; }
+    footer{ background:#f7f7f7; }
+    @media (max-width:576px){ .hero .lead{ font-size:1rem; } }
+  </style>
 </head>
 <body>
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+        <!-- substitua assets/logo.png pelo seu arquivo de logo -->
+        <img src="assets/logo.png" alt="Logo Picolé da Estação" width="60" height="60" class="d-inline-block align-text-top rounded">
+        <div>
+          <div class="brand-name">Picolé da Estação</div>
+          <small class="text-muted">100% naturais • Sabores por estação</small>
+        </div>
+      </a>
 
-    <h1>Bem-vinda, Sara!</h1>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="caixa">
-        <p>Esta é sua página com tema roxo 💜</p>
+      <div class="collapse navbar-collapse" id="menuNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="#produtos">Produtos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#cardapio">Cardápio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+          <li class="nav-item ms-2 d-none d-lg-block">
+            <a class="btn btn-outline-success" href="https://wa.me/55169992076501" target="_blank">WhatsApp</a>
+          </li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
+  <!-- HERO -->
+  <header class="hero py-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h1 class="display-5 fw-bold">Picolé da Estação</h1>
+          <p class="lead text-muted">Picolés 100% naturais — feitos com frutas frescas da estação e ingredientes selecionados da região de Sertãozinho. Sem açúcar, sem conservantes. Sabor, saúde e sustentabilidade em cada mordida.</p>
+
+          <div class="d-flex gap-2 flex-wrap">
+            <a class="btn btn-primary btn-lg" href="#cardapio">Ver cardápio</a>
+            <a class="btn btn-outline-secondary btn-lg" href="#produtos">Nossos produtos</a>
+            <a class="btn btn-success btn-lg" href="https://wa.me/55169992076501" target="_blank">Pedir pelo WhatsApp</a>
+          </div>
+
+          <div class="mt-4">
+            <small class="text-muted">Destaque: sabores rotativos por estação — experimente a novidade do mês!</small>
+          </div>
+        </div>
+
+        <div class="col-lg-6 text-center mt-4 mt-lg-0">
+          <img src="assets/hero-popsicle.png" alt="Picolés naturais" class="img-fluid" style="max-width:380px;">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SOBRE -->
+  <section id="sobre" class="py-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-6">
+          <h3>Missão</h3>
+          <p>Produzir picolés 100% naturais, feitos com frutas frescas da estação e ingredientes locais de Sertãozinho, oferecendo opções saudáveis, saborosas e sustentáveis.</p>
+
+          <h3>Visão</h3>
+          <p>Ser referência em picolés sazonais e sustentáveis, inspirando escolhas alimentares mais conscientes e fortalecendo produtores locais.</p>
+        </div>
+
+        <div class="col-md-6">
+          <h3>Nossa Origem</h3><p>Nascemos em <strong>Sertãozinho</strong>, cidade conhecida por sua força empreendedora e pelas tradições locais. Levamos esse orgulho em cada receita, valorizando produtores da região e o sabor autêntico das frutas.</p><h3>Valores</h3>
+          <ul>
+            <li><strong>Sustentabilidade:</strong> ingredientes da estação e redução de desperdício.</li>
+            <li><strong>Naturalidade:</strong> sem conservantes nem açúcares artificiais.</li>
+            <li><strong>Inovação:</strong> cardápio rotativo e criativo.</li>
+            <li><strong>Valorização local:</strong> parceria com agricultores da região.</li>
+            <li><strong>Transparência e qualidade.</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUTOS -->
+  <section id="produtos" class="py-5 bg-light">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Produtos principais</h2>
+        <span class="badge flavor-badge p-2">100% naturais • Água de coco</span>
+      </div>
+
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <!-- Card 1 -->
+        <div class="col">
+          <div class="card h-100 card-product shadow-sm">
+            <img src="assets/picole-fruta.jpg" class="card-img-top" alt="Picolé de fruta">
+            <div class="card-body">
+              <h5 class="card-title">Linha Clássica</h5>
+              <p class="card-text">Picolés feitos apenas com frutas da estação e água de coco. Sem açúcar.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col">
+          <div class="card h-100 card-product shadow-sm">
+            <img src="assets/picole-mix.jpg" class="card-img-top" alt="Picolé mix">
+            <div class="card-body">
+              <h5 class="card-title">Mix de Frutas</h5>
+              <p class="card-text">Combinações sazonais criativas — ex.: manga + maracujá, abacaxi + hortelã.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col">
+          <div class="card h-100 card-product shadow-sm">
+            <img src="assets/picole-kids.jpg" class="card-img-top" alt="Picolé kids">
+            <div class="card-body">
+              <h5 class="card-title">Linha Kids</h5>
+              <p class="card-text">Formas divertidas e sabores suaves — 100% naturais e amigáveis para crianças.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="col">
+          <div class="card h-100 card-product shadow-sm">
+            <img src="assets/picole-cremoso.jpg" class="card-img-top" alt="Picolé cremoso">
+            <div class="card-body">
+              <h5 class="card-title">Cremosos Naturais</h5>
+              <p class="card-text">Banana-creme, coco e versões com leite vegetal — tudo natural.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="col">
+          <div class="card h-100 card-product shadow-sm">
+            <img src="assets/picole-funcional.jpg" class="card-img-top" alt="Picolé funcional">
+            <div class="card-body">
+              <h5 class="card-title">Funcionais</h5>
+              <p class="card-text">Detox, energético e vitaminado — receitas naturais com benefícios extras.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="col">
+          <div class="card h-100 card-product shadow-sm">
+            <img src="assets/picole-mini.jpg" class="card-img-top" alt="Mini picolés">
+            <div class="card-body">
+              <h5 class="card-title">Mini Picolés</h5>
+              <p class="card-text">Versões menores para festas, degustações e vendas em volume.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CARDÁPIO POR ESTAÇÃO -->
+  <section id="cardapio" class="py-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h2>Cardápio (exemplos por estação)</h2>
+          <p class="text-muted">Os sabores mudam conforme a colheita local — aqui estão sugestões para cada estação.</p>
+
+          <div id="season-list" class="list-group list-group-flush">
+            <!-- JS preencherá aqui -->
+          </div>
+
+          <small class="text-muted d-block mt-3">Obs: cardápio real depende da safra local — ideal para destacar produtores parceiros.</small>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h5 class="card-title">Sabores da vez</h5>
+              <div id="current-flavors" class="d-flex gap-2 flex-wrap"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / CONTATO -->
+  <section id="contato" class="py-5 bg-success text-white">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-8">
+          <h3 class="fw-bold">Quer encomendar ou fazer uma parceria?</h3>
+          <p class="mb-0">Fale com a fundadora Sara Avelino Carrijo no WhatsApp — atendimento rápido e personalizado.</p>
+        </div>
+        <div class="col-md-4 text-md-end mt-3 mt-md-0">
+          <a class="btn btn-light btn-lg" href="https://wa.me/55169992076501" target="_blank">WhatsApp: +55 16 99207-6501</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RODAPÉ -->
+  <footer class="py-4">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center">
+      <div>
+        <strong>Picolé da Estação</strong><br>
+        Fundadora: Sara Avelino Carrijo • WhatsApp: +55 16 99207-6501
+      </div>
+      <div class="text-muted small">© <span id="year"></span> Picolé da Estação • Todos os direitos reservados</div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Atualiza ano no rodapé
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Exemplo de cardápio sazonal automático (pode ser ajustado manualmente)
+    const seasons = {
+      'verao': ['Melancia', 'Manga', 'Abacaxi + Hortelã'],
+      'outono': ['Goiaba', 'Maçã', 'Pera + Canela (natural)'],
+      'inverno': ['Cacau + Banana (cremoso)', 'Abacate + Limão', 'Goiaba cremosa'],
+      'primavera': ['Morango', 'Kiwi', 'Maracujá + Laranja']
+    };
+
+    function getSeasonByMonth(m) {
+      // meses 0..11
+      if (m >= 11 || m <= 1) return 'verao'; // Dez-Jan-Fev -> verão (ajuste ao país/região se necessário)
+      if (m >= 2 && m <= 4) return 'outono';
+      if (m >= 5 && m <= 7) return 'inverno';
+      return 'primavera';
+    }
+
+    const month = new Date().getMonth();
+    const currentSeason = getSeasonByMonth(month);
+
+    const seasonList = document.getElementById('season-list');
+    for (const s of ['verao','outono','inverno','primavera']){
+      const item = document.createElement('div');
+      item.className = 'list-group-item d-flex justify-content-between align-items-start';
+      item.innerHTML = `<div><strong>${s.charAt(0).toUpperCase()+s.slice(1)}</strong><br><small class='text-muted'>Ex.: ${seasons[s].join(', ')}</small></div>`;
+      if (s === currentSeason) item.classList.add('border', 'border-3');
+      seasonList.appendChild(item);
+    }
+
+    // Preenche sabores atuais
+    const currentFlavors = document.getElementById('current-flavors');
+    seasons[currentSeason].forEach(f => {
+      const span = document.createElement('span');
+      span.className = 'badge rounded-pill bg-white text-dark border me-1 mb-1';
+      span.textContent = f;
+      currentFlavors.appendChild(span);
+    });
+
+    // Pequeno script para smooth scroll em links internos
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    });
+  </script>
 </body>
 </html>
